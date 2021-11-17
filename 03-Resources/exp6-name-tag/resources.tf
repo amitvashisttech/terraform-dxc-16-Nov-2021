@@ -1,0 +1,15 @@
+provider "aws" {
+  region = "us-east-2"
+}
+
+
+
+resource "aws_instance" "frontend" {
+  ami           = "ami-0dd0ccab7e2801812"
+  instance_type = "t2.micro"
+  count         = 2
+
+  tags = {
+    Name = "frontend-${count.index}"
+  }
+}
