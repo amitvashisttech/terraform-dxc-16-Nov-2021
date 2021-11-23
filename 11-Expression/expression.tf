@@ -38,8 +38,8 @@ resource "aws_instance" "east_frontend" {
   }
 
   tags = {
-     Name = "${join("-", list(var.project-name, "Frontend"))}-${count.index + 1}"
-     #Name = "${join("-", tolist([var.project-name, "Frontend"]))}-${count.index + 1}"
+     #Name = "${join("-", list(var.project-name, "Frontend"))}-${count.index + 1}"
+     Name = "${join("-", tolist([var.project-name, "Frontend"]))}-${count.index + 1}"
   }
 }
 
@@ -65,7 +65,8 @@ resource "aws_instance" "east_backend" {
     prevent_destroy = false
   }
   tags = {
-     Name = "${join("-", list(var.project-name, "Backend"))}-${count.index + 1}"
+     #Name = "${join("-", list(var.project-name, "Backend"))}-${count.index + 1}"
+     Name = "${join("-", tolist([var.project-name, "Backend"]))}-${count.index + 1}"
   }
 }
 
