@@ -39,6 +39,7 @@ resource "aws_instance" "east_frontend" {
 
   tags = {
      Name = "${join("-", list(var.project-name, "Frontend"))}-${count.index + 1}"
+     #Name = "${join("-", tolist([var.project-name, "Frontend"]))}-${count.index + 1}"
   }
 }
 
