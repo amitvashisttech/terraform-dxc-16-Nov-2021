@@ -1,6 +1,22 @@
 node { 
 
-stage('Test')
-   sh "echo 'Welcome to the world of jenkins Pipeline as code'; date"
-  
+stage('Git Checkout')
+   git 'https://github.com/amitvashisttech/terraform-dxc-16-Nov-2021.git'
+ }
+ 
+def project_path="27-CICD"
+
+dir(project_path) { 
+
+stage('Getting Ready For Ansible'){
+   sh label: 'Jenkins', script: "echo '<h1> TASK BUILD ID: ${env.BUILD_DISPLAY_NAME}</h1>' >  ansible-code/roles/webserver/files/jenkins.html"
+}
+
+stage('Prod Deployment on AWS'){
+  sh label: 'terraform', script: '/usr/bin/terraform  init'
+  sh label: 'terraform', script: '/usr/bin/terraform  apply -input=false --auto-approve'
+}
+
+}
+
 }
