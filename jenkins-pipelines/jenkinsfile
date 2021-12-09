@@ -1,7 +1,7 @@
 node { 
 
 stage('Git Checkout') {
-   git 'https://github.com/amitvashisttech/terraform-dxc-16-Nov-2021.git'
+   git branch: 'main', url: 'https://github.com/amitvashisttech/terraform-dxc-16-Nov-2021.git'
  }
  
 def project_path="27-CICD"
