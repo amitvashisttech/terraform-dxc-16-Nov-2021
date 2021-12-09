@@ -1,0 +1,6 @@
+node { 
+
+stage('Test')
+   sh "echo 'Welcome to the world of jenkins Pipeline as code'; date"
+  
+}
