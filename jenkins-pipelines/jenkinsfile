@@ -1,6 +1,6 @@
 node { 
 
-stage('Git Checkout')
+stage('Git Checkout') {
    git 'https://github.com/amitvashisttech/terraform-dxc-16-Nov-2021.git'
  }
  
